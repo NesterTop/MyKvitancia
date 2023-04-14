@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace Kvitancia
         string adres;
         string sum;
 
+        DataBase db = new DataBase();
         public Form1()
         {
             InitializeComponent();
@@ -86,6 +88,37 @@ namespace Kvitancia
             {
                 printDocument1.Print();
             }
+        }
+        DataTable dt;
+        SqlDataAdapter adapter;
+        private void физическоеЛицоToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dt = new DataTable();
+            adapter = new SqlDataAdapter("select * from FizLico", db.GetConnection());
+            adapter.Fill(dt);
+
+            adapter.UpdateCommand = new SqlCommandBuilder(adapter).GetUpdateCommand();
+            dataGridView1.DataSource = dt;
+        }
+
+        private void образовательнаяПрограммаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dt = new DataTable();
+            adapter = new SqlDataAdapter("select * from ObrazovatelnayaProgramma", db.GetConnection());
+            adapter.Fill(dt);
+
+            adapter.UpdateCommand = new SqlCommandBuilder(adapter).GetUpdateCommand();
+            dataGridView1.DataSource = dt;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            adapter.Update(dt);
+;       }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new FormDogovor().Show();
         }
     }
 }

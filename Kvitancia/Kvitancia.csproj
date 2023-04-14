@@ -62,6 +62,12 @@
     <Compile Include="FormAuth.Designer.cs">
       <DependentUpon>FormAuth.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDogovor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDogovor.Designer.cs">
+      <DependentUpon>FormDogovor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSbros.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAuth.resx">
       <DependentUpon>FormAuth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDogovor.resx">
+      <DependentUpon>FormDogovor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSbros.resx">
       <DependentUpon>FormSbros.cs</DependentUpon>
